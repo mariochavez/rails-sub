@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Usage: bf tail
+# Summary: Tails log for rails application
+# Help: Tail a log for rails application by default it tails development
+#
+#    bf tail <= Default to development log
+#    bf tail test <= tails test log
+set -e
+
+LOG="$1"
+if [ "$1" = "" ]; then
+  LOG="development"
+fi
+
+tail -f log/$LOG.log
